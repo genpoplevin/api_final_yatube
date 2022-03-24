@@ -52,27 +52,28 @@ python3 manage.py runserver
 
 GET http://127.0.0.1:8000/api/v1/posts/
 
-```
+
 Создание публикации
 
 POST http://127.0.0.1:8000/api/v1/posts/
 
-```
+
 Получение и добавление комментариев
 
 GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 POST http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 
-```
+
 Список сообществ
 
 GET http://127.0.0.1:8000/api/v1/groups/
 
-```
 Подписки
 
 GET http://127.0.0.1:8000/api/v1/follow/
 POST http://127.0.0.1:8000/api/v1/follow/
+
+Работа с JWT-токенами
 ```
 Получить JWT-токен
 POST http://127.0.0.1:8000/api/v1/jwt/create/
