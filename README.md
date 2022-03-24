@@ -79,7 +79,7 @@ POST http://127.0.0.1:8000/api/v1/follow/
 POST http://127.0.0.1:8000/api/v1/jwt/create/
 
 Обновить JWT-токен
-POST Обновить JWT-токен
+POST http://127.0.0.1:8000/api/v1/jwt/refresh/
 
 Проверить JWT-токен
 POST http://127.0.0.1:8000/api/v1/jwt/verify/
