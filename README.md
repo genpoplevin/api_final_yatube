@@ -21,14 +21,18 @@ Cоздать виртуальное окружение:
 
 ```
 python3 -m venv env
+либо
+python -m venv venv
 ```
 
 Активировать виртуальное окружение:
 ```
 source env/bin/activate
+либо
+source venv/Scripts/activate
 ```
 
-Обновить установщик пакетов pip:
+Обновить менеджер пакетов pip:
 ```
 python3 -m pip install --upgrade pip
 ```
