@@ -49,18 +49,23 @@ sudo snap install code --classic
 
 Для запуска проекта 
 ```
-Клонировать репозиторий:
-
+На macOS или Linux запустите программу Терминал. Если у вас Windows — запускайте Git Bash.
+В открывшемся окне вы увидите:
+имя вашего компьютера,
+имя, под которым вы авторизовались в компьютере
+символ доллара $ — отображение этого символа означает, что программа ждёт ваших команд. В зависимости от операционной системы порядок и вид этой информации может немного различаться
+Сразу после запуска программы вы оказываетесь в домашней директории. Это каталог, где (по умолчанию) располагаются пользовательские файлы.
 ```
+Клонируйте репозиторий с проектом в вашу домашнюю директорию такой командой:
 git clone https://github.com/genpoplevin/api_final_yatube.git
 ```
 
-Перейти в репозиторий в командной строке:
+Перейдите в репозиторий в командной строке:
 ```
 cd api_final_yatube
 ```
 
-Cоздать виртуальное окружение:
+Cоздайте виртуальное окружение (это своего рода «изолированные территории», отдельные виртуальные загончики для проектов.):
 
 ```
 python3 -m venv env
@@ -68,42 +73,47 @@ python3 -m venv env
 python -m venv venv
 ```
 
-Активировать виртуальное окружение:
+Активируйте виртуальное окружение:
 ```
 source env/bin/activate
 либо
 source venv/Scripts/activate
 ```
 
-Обновить менеджер пакетов pip:
+Обновите менеджер пакетов pip:
 ```
 python3 -m pip install --upgrade pip
 ```
 
-Установить зависимости из файла requirements.txt:
+Установите зависимости (программы, которые понадобятся для работы проекта, будут установлены в виртуальное окружение) из файла requirements.txt:
 
 ```
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Выполните миграции (будет создана база данных для работы с проектом):
 
 ```
 python3 manage.py migrate
+либо
+python manage.py migrate
 ```
 
-Запустить проект:
+Запустите проект:
 
 ```
 python3 manage.py runserver
+либо
+python manage.py runserver
 ```
+Теперь в браузере или в программе для взаимодействия с API (например, Postman), можете перейти по адресу http://127.0.0.1:8000/api/v1/ для запросов к API проекта
 ### Примеры
 
 Получение публикаций.
 ```
 Получить список всех публикаций. При указании параметров limit и offset выдача работает с пагинацией.
 
-GET yatube.com/api/v1/posts/
+GET http://127.0.0.1:8000/api/v1/posts/
 
 Пример ответа:
 {
@@ -124,7 +134,7 @@ GET yatube.com/api/v1/posts/
 
 Создание публикации
 
-POST yatube.com/api/v1/posts/
+POST http://127.0.0.1:8000/api/v1/posts/
 
 Пример запроса:
 {
@@ -145,7 +155,7 @@ POST yatube.com/api/v1/posts/
 
 Получение публикации по id
 
-GET yatube.com/api/v1/posts/{id}/
+GET http://127.0.0.1:8000/api/v1/posts/{id}/
 
 Пример ответа:
 {
@@ -159,7 +169,7 @@ GET yatube.com/api/v1/posts/{id}/
 
 Обновление публикации
 
-PUT yatube.com/api/v1/posts/{id}/
+PUT http://127.0.0.1:8000/api/v1/posts/{id}/
 
 Пример запроса:
 {
@@ -180,7 +190,7 @@ PUT yatube.com/api/v1/posts/{id}/
 
 Частичное обновление публикации
 
-PATCH yatube.com/api/v1/posts/{id}/
+PATCH http://127.0.0.1:8000/api/v1/posts/{id}/
 
 Пример запроса:
 {
@@ -201,7 +211,7 @@ PATCH yatube.com/api/v1/posts/{id}/
 
 Удаление публикации
 
-DELETE yatube.com/api/v1/posts/{id}/
+DELETE http://127.0.0.1:8000/api/v1/posts/{id}/
 
 Пример ответа:
 {
@@ -213,7 +223,7 @@ DELETE yatube.com/api/v1/posts/{id}/
 ```
 Получение всех комментариев к публикации
 
-GET yatube.com/api/v1/posts/{post_id}/comments/
+GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 
 Пример ответа:
 [
@@ -228,7 +238,7 @@ GET yatube.com/api/v1/posts/{post_id}/comments/
 
 Добавление комментария
 
-POST yatube.com/api/v1/posts/{post_id}/comments/
+POST http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 
 Пример запроса:
 {
@@ -246,7 +256,7 @@ POST yatube.com/api/v1/posts/{post_id}/comments/
 
 Получение комментария к публикации по id
 
-GET yatube.com/api/v1/posts/{post_id}/comments/{id}/
+GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
 
 Пример ответа:
 
